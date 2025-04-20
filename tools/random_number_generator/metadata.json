@@ -1,0 +1,40 @@
+{
+  "name": "random_number_generator",
+  "description": "# Summary\n\n## Random Number Generator Tool\n\nThe `random_number_generator` tool is a high-quality random number generator that can generate random numbers within a specified range. It is designed to be a reliable and efficient tool for applications that require the generation of random numbers, such as games, simulations, and data analysis.\n\n## Key Features\n\n1. **Generating Random Numbers**: The tool provides the `generate_random_number()` function to generate a single random number within a specified range, and the `generate_multiple_random_numbers()` function to generate a list of random numbers within a specified range.\n\n2. **Storing Random Numbers**: The tool can store generated random numbers in a SQLite database using the `store_random_numbers()` function, and load the stored numbers using the `load_random_numbers()` function.\n\n3. **Large Language Model (LLM) Integration**: The tool includes an `llm_api_call()` function that allows it to interact with LLM APIs to generate responses based on input prompts.\n\n## Use Cases\n\nThe `random_number_generator` tool can be used in a variety of scenarios, including:\n\n1. **Game Development**: Generate random numbers for game mechanics, such as dice rolls, card shuffling, or random enemy spawns.\n2. **Simulations**: Generate random inputs or initial conditions for simulations, such as Monte Carlo simulations or agent-based models.\n3. **Data Analysis**: Generate random samples or test data for data analysis and model validation.\n4. **Cryptography**: Generate random numbers for use in cryptographic applications, such as key generation or nonce creation.\n5. **Lottery and Gambling**: Generate random numbers for lottery or gambling applications, ensuring fairness and unpredictability.",
+  "version": "1.0.0",
+  "author": "Hephestus",
+  "tags": [
+    "system",
+    "web",
+    "data"
+  ],
+  "created_at": "2025-04-19T20:30:21.413561",
+  "updated_at": "2025-04-19T20:30:21.413577",
+  "functions": [
+    {
+      "name": "generate_random_number(min_value, max_value)",
+      "description": "### Purpose Generates a random number within the specified range. ### Detailed Logic 1. Validate that `min_value` is less than `max_value`. 2. Use the `random.randint()` function to generate a random integer between `min_value` and `max_value` (inclusive). 3. Return the generated random number. ### Parameters - `min_value` (int): The minimum value of the range. - `max_value` (int): The maximum value of the range. ### Return Values - (int): A random number within the specified range. ### Error Handling - Raises a `ValueError` if `min_value` is greater than or equal to `max_value`. ",
+      "parameters": []
+    },
+    {
+      "name": "generate_multiple_random_numbers(min_value, max_value, count)",
+      "description": "### Purpose Generates a list of random numbers within the specified range. ### Detailed Logic 1. Validate that `min_value` is less than `max_value`. 2. Validate that `count` is a positive integer. 3. Use a loop to generate `count` random numbers using the `generate_random_number()` function. 4. Return the list of generated random numbers. ### Parameters - `min_value` (int): The minimum value of the range. - `max_value` (int): The maximum value of the range. - `count` (int): The number of random numbers to generate. ### Return Values - (list of int): A list of random numbers within the specified range. ### Error Handling - Raises a `ValueError` if `min_value` is greater than or equal to `max_value`. - Raises a `ValueError` if `count` is less than or equal to 0. ",
+      "parameters": []
+    },
+    {
+      "name": "store_random_numbers(numbers, database_path)",
+      "description": "### Purpose Stores a list of random numbers in a SQLite database. ### Detailed Logic 1. Create a SQLite database at the specified `database_path` if it doesn't already exist. 2. Create a table named `random_numbers` with a single column `number` of type `INTEGER`. 3. Insert each number in the `numbers` list into the `random_numbers` table. 4. Commit the changes to the database. ### Parameters - `numbers` (list of int): The list of random numbers to store. - `database_path` (str): The file path of the SQLite database. ### Return Values - None ### Error Handling - Raises an `IOError` if the database file cannot be accessed or created. - Raises a `sqlite3.Error` if there is an issue executing the SQL queries. ",
+      "parameters": []
+    },
+    {
+      "name": "load_random_numbers(database_path)",
+      "description": "### Purpose Loads all the random numbers stored in the SQLite database. ### Detailed Logic 1. Open a connection to the SQLite database at the specified `database_path`. 2. Execute a `SELECT` query to retrieve all the numbers from the `random_numbers` table. 3. Return the list of retrieved numbers. ### Parameters - `database_path` (str): The file path of the SQLite database. ### Return Values - (list of int): The list of random numbers stored in the database. ### Error Handling - Raises an `IOError` if the database file cannot be accessed. - Raises a `sqlite3.Error` if there is an issue executing the SQL query. ",
+      "parameters": []
+    },
+    {
+      "name": "llm_api_call(prompt, model_name, max_tokens)",
+      "description": "### Purpose Generates a response using a Large Language Model (LLM) API. ### Detailed Logic 1. Send the `prompt` to the LLM API using the specified `model_name`. 2. Retrieve the generated response from the API. 3. Return the generated response. ### Parameters - `prompt` (str): The input prompt for the LLM. - `model_name` (str): The name of the LLM model to use. - `max_tokens` (int): The maximum number of tokens to generate in the response. ### Return Values - (str): The generated response from the LLM. ### Error Handling - Raises an `APIError` if there is an issue connecting to or using the LLM API. ``` ",
+      "parameters": []
+    }
+  ]
+}
